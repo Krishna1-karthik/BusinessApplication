@@ -9,7 +9,7 @@ import { ChangePasswordRequest } from '../models/ChangePasswordRequest';
 export class AdminService {
 
   //apiurl = 'https://localhost:7000/api/Admin';
-  apiurl='https://business-11.onrender.com/api/Admin';
+  apiurl='https://businessnewenvironment.onrender.com/api/Admin';
 
   constructor(private http: HttpClient) { }
 

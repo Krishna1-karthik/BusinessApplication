@@ -9,8 +9,8 @@ import { ResetPasswordRequest } from '../models/ResetPasswordRequest';
 })
 export class LoginService {
 
- apiurl='https://business-11.onrender.com/api/Auth/login';
- baseUrl = 'https://business-11.onrender.com/api/Auth';
+ apiurl='https://businessnewenvironment.onrender.com/api/Auth/login';
+ baseUrl = 'https://businessnewenvironment.onrender.com/api/Auth';
 
  //apiurl='https://localhost:7000/api/Auth/login';
  //baseUrl = 'https://localhost:7000/api/Auth';
