@@ -45,7 +45,7 @@ export class BusinesssearchComponent implements OnInit {
   fileUpload: any;
   isTableVisible: boolean = false; // Table visibility flag
 
-  imageBaseUrl = 'https://businessnewenvironment.onrender.com/';
+  imageBaseUrl = 'https://businessnewenvironment.onrender.com/uploads';
 
   latitudeDifference: number | null = null;
   longitudeDifference: number | null = null;
@@ -103,7 +103,7 @@ export class BusinesssearchComponent implements OnInit {
 
   openModal(imageUrl: string) {
     debugger
-    if(imageUrl == 'https://business-11.onrender.com/undefined')
+    if(imageUrl == 'https://businessnewenvironment.onrender.com/uploads/undefined')
     {
       this.isModalOpen = false;
       alert('Image not found.');
