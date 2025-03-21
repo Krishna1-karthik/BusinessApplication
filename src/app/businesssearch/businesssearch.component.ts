@@ -45,7 +45,8 @@ export class BusinesssearchComponent implements OnInit {
   fileUpload: any;
   isTableVisible: boolean = false; // Table visibility flag
 
-  imageBaseUrl = 'https://businessnewenvironment.onrender.com/uploads';
+  imageBaseUrl = 'https://business-11.onrender.com/';
+  //imageBaseUrl = 'https://localhost:7000/uploads/';
 
   latitudeDifference: number | null = null;
   longitudeDifference: number | null = null;
@@ -102,14 +103,18 @@ export class BusinesssearchComponent implements OnInit {
   }
 
   openModal(imageUrl: string) {
-    debugger
-    if(imageUrl == 'https://businessnewenvironment.onrender.com/uploads/undefined')
-    {
-      this.isModalOpen = false;
-      alert('Image not found.');
-    }else{
+    let filePath = this.selectedBusiness.visitingCard;
+    if(filePath == null)
+      {
+        this.isModalOpen = false;
+        alert('Image not found.');
+      }
+    let fileName = filePath.replace("uploads\\", "");
+    if(fileName != null){
       this.modalImageUrl = imageUrl;
-      this.isModalOpen = true; }    
+      this.isModalOpen = true; } else{
+        alert('Image not found.');
+      }   
   }
 
   closeModal() {
