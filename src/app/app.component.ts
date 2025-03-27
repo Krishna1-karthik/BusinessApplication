@@ -21,10 +21,12 @@ export class AppComponent {
 
   isLoginPage(): boolean {
     return this.router.url === '/login';
+    this.dropdownOpen = false;
   }
 
   isLoggedIn(): boolean {
     return this.authService.isAuthenticated();
+    this.dropdownOpen = false;
   }
 
   logout() {
@@ -37,8 +39,15 @@ export class AppComponent {
   }
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+    this.roleID = localStorage.getItem('roleId');
+    this.emailID=localStorage.getItem('email');
   }
   ProfileInfo(){
     this.router.navigateByUrl("/edit-user");
+    this.dropdownOpen = false;
+  }
+  ProfileChangePassword(){
+    debugger;
+    this.router.navigateByUrl("/Change-password");
   }
 }

@@ -7,6 +7,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 export interface Business {
   name: string;
   description: string;
@@ -16,7 +18,7 @@ export interface Business {
 @Component({
   selector: 'app-businesssearch',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, MatTabsModule, GoogleMapsModule, FormsModule],
+  imports: [ReactiveFormsModule, CommonModule, MatTabsModule, GoogleMapsModule, FormsModule, HttpClientModule],
   providers: [BusinessService],
   templateUrl: './businesssearch.component.html',
   styleUrl: './businesssearch.component.css'
@@ -84,6 +86,7 @@ export class BusinesssearchComponent implements OnInit {
     this.searchForm = this.fb.group({
       searchQuery: ['', Validators.required],
       category: ['', Validators.required],
+      CategoryID: [0],  
       subcategory: ['', Validators.required],
       location: new FormControl('', [Validators.required]),
       Latitude: [8.3],
@@ -329,7 +332,6 @@ export class BusinesssearchComponent implements OnInit {
     })
   }
   updateDistance(){
-    
     let customerLatitude = localStorage.getItem('customerLatitude')
     let customerLongitude = localStorage.getItem('customerLongitude')
     // Array to hold all distance fetch Promises
@@ -340,6 +342,11 @@ export class BusinesssearchComponent implements OnInit {
             let distance = response.rows[0].elements[0].distance.text;
             item.distancekm = parseFloat(distance).toFixed(2);
             resolve(item);  // Resolve the Promise when distance is assigned
+          },
+          (error: any) => {
+            if(error.error.message == 'Plan not found'){
+              console.log('change distance api key');
+            }
           });
       });
     });
