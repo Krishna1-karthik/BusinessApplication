@@ -47,7 +47,7 @@ export class BusinesssearchComponent implements OnInit {
   fileUpload: any;
   isTableVisible: boolean = false; // Table visibility flag
 
-  imageBaseUrl = 'https://business-11.onrender.com/';
+  imageBaseUrl = 'https://businessnewenvironment.onrender.com/';
   //imageBaseUrl = 'https://localhost:7000/uploads/';
 
   latitudeDifference: number | null = null;

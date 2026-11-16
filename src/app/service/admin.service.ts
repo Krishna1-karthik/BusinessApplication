@@ -12,7 +12,6 @@ export class AdminService {
   apiurl = environment.baseUrl+'Admin';
 
   constructor(private http: HttpClient) { }
-
   checkEmailExistsAdmin(email: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiurl}/check-email?email=${email}`);
   } 
